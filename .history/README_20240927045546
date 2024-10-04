@@ -1,0 +1,16 @@
+saya danish azka rahmat dari kelas 12 pplg 
+saya membuat sebuah project yg bertemakan travel dan ticketing, ticketing yang dimaksud adalah ticketing untuk kendaraan
+seperti pesawat dan kapal
+
+sebelumnya saya akan menjelaskan relasi yg ada dalam table/model di database yang saya buat
+
+1.relasi antar client dan pemesanan, yang dimana seorang client dapat memiliki 1 pemesanan(1-to-1)
+2.relasi antar client dan payment, yang dimana seorang client dapat memiliki 1 payment/pembayaran(1-to-1)
+3.relasi antar client dan review, yang dimana seorang client dapat memiliki 1 review(1-to-1)
+4.relasi antar payment dan diskon, yang dimana 1 payment dapat memiliki banyak diskon(1-to-Many)
+
+lalu saya menggunakan metode polymorphic association dan discriminator yang dimana memungkinkan saya untuk
+membuat sebuah model berelasi dengan banyak model lain  melalui penggunana 2 field (jenis_layanan dan id_layanan)
+dalam database yang saya buat pemesanan berelasi dengan 5 field yg berbeda(pesawat, kereta, kapal, Bus dan penginapan)
+sedikit penjelasnnya
+

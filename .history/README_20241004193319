@@ -1,0 +1,34 @@
+saya danish azka rahmat dari kelas 12 pplg 
+saya membuat sebuah project yg bertemakan travel dan ticketing, ticketing yang dimaksud adalah ticketing untuk kendaraan
+seperti pesawat dan kapal
+
+sebelumnya saya akan menjelaskan relasi yg ada dalam table/model di database yang saya buat
+
+1.relasi antar client dan pemesanan, yang dimana seorang client dapat memiliki 1 pemesanan(1-to-1)
+2.relasi antar client dan payment, yang dimana seorang client dapat memiliki 1 payment/pembayaran(1-to-1)
+3.relasi antar client dan review, yang dimana seorang client dapat memiliki 1 review(1-to-1)
+4.relasi antar payment dan diskon, yang dimana 1 payment dapat memiliki banyak diskon(1-to-Many)
+
+lalu saya menggunakan metode polymorphic association dan discriminator yang dimana memungkinkan saya untuk
+membuat sebuah model berelasi dengan banyak model lain  melalui penggunana 2 field (jenis_layanan dan id_layanan)
+dalam database yang saya buat pemesanan berelasi dengan 5 field yg berbeda(pesawat, kereta, kapal, Bus dan penginapan)
+sedikit penjelasnnya
+
+Polymorphic Association: Menggunakan satu kolom foreign key (id_layanan) untuk merujuk ke berbagai tabel layanan.
+Discriminator: Kolom jenis_layanan digunakan sebagai discriminator untuk menentukan jenis layanan yang dirujuk.
+dan setiap layanan dapat memiliki banyak pemesanan dan review
+
+foreignKey: 'id_layanan': Menunjukkan bahwa `Pemesanan memiliki kolom id_layanan yang merujuk ke ID dari layanan terkait.
+- constraints: true: Mengaktifkan foreign key constraint di level database.
+- scope: { jenis_layanan: '...' }: Menambahkan kondisi tambahan saat melakukan query, memastikan bahwa hanya pemesanan dengan jenis layanan yang sesuai yang diambil.
+
+adapun gambaran dari database yg saya buat ada di file terpisah
+
+sedikit penjelasan untuk gambar database yg saya buat,
+terlihat di bagian relasi antar ticketing dan penginapan ke pemesanan
+hanya table KAPAL yg memiliki garis yang terhubung ke pemesanan dikarenakan
+
+Keterbatasan Visualisasi Foreign Key:
+MySQL hanya dapat menampilkan satu foreign key constraint untuk satu kolom dalam visualisasi desainer.
+Dalam kasus ini, kolom 'id_layanan' di tabel Pemesanan sebenarnya merujuk ke beberapa tabel (Kapal, Kereta, Pesawat, Bus, Penginapan), tetapi MySQL hanya bisa menampilkan satu relasi secara visual.
+sc : ChatGpt
